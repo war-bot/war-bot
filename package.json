@@ -1,0 +1,33 @@
+{
+  "name": "war-bot",
+  "version": "1.0.0",
+  "description": "A dockerized Discord bot for keeping track of Clash Royale clan wars.",
+  "main": "./bot",
+  "scripts": {
+    "start": "nodemon -r dotenv/config .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/war-bot/war-bot.git"
+  },
+  "keywords": [
+    "Clash",
+    "Royale",
+    "Discord",
+    "war",
+    "bot"
+  ],
+  "author": "Scott Rudiger (https://github.com/ScottRudiger)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/war-bot/war-bot/issues"
+  },
+  "homepage": "https://github.com/war-bot/war-bot#readme",
+  "devDependencies": {
+    "dotenv": "^8.0.0"
+  },
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
+}
