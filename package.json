@@ -5,7 +5,10 @@
   "main": "./bot",
   "scripts": {
     "start": "nodemon -r dotenv/config .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "base-for-docker:build": "docker build -t $IMG . && docker tag $IMG $IMG:$(node -p \"require('./package.json').version\")",
+    "docker:build": "IMG=crwarbot/war-bot npm run base-for-docker:build",
+    "docker:push": "docker push crwarbot/war-bot"
   },
   "repository": {
     "type": "git",
@@ -25,7 +28,8 @@
   },
   "homepage": "https://github.com/war-bot/war-bot#readme",
   "devDependencies": {
-    "dotenv": "^8.0.0"
+    "dotenv": "^8.0.0",
+    "nodemon": "^1.19.0"
   },
   "dependencies": {
     "discord.js": "^11.4.2"
