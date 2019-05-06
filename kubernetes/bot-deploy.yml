@@ -7,6 +7,9 @@ metadata:
 spec:
   strategy:
     type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 2
   selector:
     matchLabels:
       app: war-bot
@@ -18,7 +21,8 @@ spec:
     spec:
       containers:
       - name: war-bot
-        image: crwarbot/war-bot
+        image: crwarbot/war-bot:latest
+        imagePullPolicy: Always
         env:
         - name: DISCORD_TOKEN
           valueFrom:
