@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: war-bot
+  labels:
+    name: war-bot
+spec:
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: war-bot
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: war-bot
+    spec:
+      containers:
+      - name: war-bot
+        image: crwarbot/war-bot
+        env:
+        - name: DISCORD_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: env
+              key: DISCORD_TOKEN
+      restartPolicy: Always
