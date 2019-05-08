@@ -6,9 +6,13 @@
   "scripts": {
     "start": "nodemon -r dotenv/config .",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .js",
     "base-for-docker:build": "docker build -t $IMG . && docker tag $IMG $IMG:$(node -p \"require('./package.json').version\")",
     "docker:build": "IMG=crwarbot/war-bot npm run base-for-docker:build",
     "docker:push": "docker push crwarbot/war-bot"
+  },
+  "eslintConfig": {
+    "extends": "@scottrudiger"
   },
   "repository": {
     "type": "git",
@@ -28,7 +32,10 @@
   },
   "homepage": "https://github.com/war-bot/war-bot#readme",
   "devDependencies": {
+    "@scottrudiger/eslint-config": "^0.7.1",
     "dotenv": "^8.0.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-import": "^2.17.2",
     "nodemon": "^1.19.0"
   },
   "dependencies": {
